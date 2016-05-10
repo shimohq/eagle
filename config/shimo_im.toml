@@ -1,0 +1,64 @@
+[redis-pubsub]
+server = "127.0.0.1"
+port = 6379
+password = ""
+
+[http-web1-9001]
+ip = "10.24.200.50"
+port = 9001
+path = "/ping"
+
+[http-web1-9002]
+ip = "10.24.200.50"
+port = 9002
+path = "/ping"
+
+[http-web1-9003]
+ip = "10.24.200.50"
+port = 9003
+path = "/ping"
+
+[http-web1-9004]
+ip = "10.24.200.50"
+port = 9004
+path = "/ping"
+
+[http-web2-9001]
+ip = "10.24.200.3"
+port = 9001
+path = "/ping"
+
+[http-web2-9002]
+ip = "10.24.200.3"
+port = 9002
+path = "/ping"
+
+[http-web2-9003]
+ip = "10.24.200.3"
+port = 9003
+path = "/ping"
+
+[http-web2-9004]
+ip = "10.24.200.3"
+port = 9004
+path = "/ping"
+
+[http-web2-9005]
+ip = "10.24.200.3"
+port = 9005
+path = "/ping"
+
+[http-web2-9006]
+ip = "10.24.200.3"
+port = 9006
+path = "/ping"
+
+[http-api1]
+ip = "10.24.200.50"
+port = 9301
+path = "/ping"
+
+[http-api2]
+ip = "10.24.200.3"
+port = 9301
+path = "/ping"
