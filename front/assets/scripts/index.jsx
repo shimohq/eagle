@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Node from './components/node';
+import NodeContainer from './components/node_container';
 
-window.onload = function () {
-  render(<Node />, document.getElementById('node-container'));
-};
+$(function () {
+  render(<NodeContainer />, $('#node-container-wrap')[0]);
+});

@@ -1,5 +1,6 @@
 'use strict';
 
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -21,10 +22,23 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'stage-0']
         },
         include: path.join(__dirname, 'front/assets/script')
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css?modules', 'sass?sourceMap']
       }
     ]
-  }
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, 'front/assets/styles')]
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      _: 'lodash'
+    })
+  ]
 };

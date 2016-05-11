@@ -13,6 +13,9 @@ router
   .get('/', function* () {
     this.render('index');
   })
+  .get('/config', function* () {
+    this.body = config;
+  })
   .get('/ping/:name', function* () {
     const name = this.params.name;
     const options = config[name];

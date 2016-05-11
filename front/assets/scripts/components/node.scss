@@ -1,0 +1,21 @@
+.node {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: 1px;
+  text-align: center;
+  color: white;
+  background: gray;
+
+  .name {
+    margin-top: 80px;
+  }
+}
+
+.delay {
+  color: white;
+}
+
+.label {
+  margin: 10px;
+}
