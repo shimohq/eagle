@@ -20,7 +20,7 @@ class Node extends React.Component {
       delay: 0
     };
     this.ping();
-    setInterval(this.ping.bind(this), 3000);
+    setInterval(this.ping.bind(this), window.config.pingInterval);
   }
 
   reqIndex = 0

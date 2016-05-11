@@ -56,9 +56,9 @@ path = "/ping"
 [http-api1]
 ip = "10.24.200.50"
 port = 9301
-path = "/ping"
+path = "/"
 
 [http-api2]
 ip = "10.24.200.3"
 port = 9301
-path = "/ping"
+path = "/"

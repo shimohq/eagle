@@ -11,7 +11,8 @@ const mount = require('koa-mount');
 
 router
   .get('/', function* () {
-    this.render('index');
+    const host = process.env.HOST;
+    this.render('index', { host });
   })
   .get('/config', function* () {
     this.body = config;
