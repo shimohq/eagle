@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import styles from './node.scss';
 import Radient from 'radient';
 
-var gradient = new Radient('black', 'white');
+var gradient = new Radient();
 gradient.stop('#008f00', 0);
 gradient.stop('#929000', 1000 / 30000);
 gradient.stop('#941100', 1);

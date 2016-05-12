@@ -1,3 +1,5 @@
+port = 9901
+
 [redis-pubsub]
 server = "127.0.0.1"
 port = 6379

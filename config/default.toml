@@ -1,57 +1,8 @@
 # ping 的间隔
 pingInterval = 3000
 
+# 启动端口
+port = 3000
 
 # 这是一个正则表达式，匹配这个正则的配置是属于节点的配置
 nodeTest = '''^(mysql|redis|http)-'''
-
-[mysql-master]
-host = "localhost"
-user = "root"
-password = "123456"
-database = "cow_dev"
-
-[redis-master]
-host = "localhost"
-port = 6379
-password = ""
-
-[http-web1-9001]
-ip = "localhost"
-port = 9001
-path = "/ping"
-
-# [http-web1-9002]
-# ip = "localhost"
-# port = 9001
-# path = "/ping"
-
-# [http-web1-9003]
-# ip = "localhost"
-# port = 9001
-# path = "/ping"
-
-# [http-web1-9004]
-# ip = "localhost"
-# port = 9001
-# path = "/ping"
-
-# [http-web2-9001]
-# ip = "localhost"
-# port = 9001
-# path = "/ping"
-
-# [http-web2-9002]
-# ip = "localhost"
-# port = 9001
-# path = "/ping"
-
-# [http-web2-9003]
-# ip = "localhost"
-# port = 9001
-# path = "/ping"
-
-# [http-web2-9004]
-# ip = "localhost"
-# port = 9001
-# path = "/ping"

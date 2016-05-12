@@ -31,4 +31,4 @@ app
   .use(mount('/static', serve(path.join(__dirname, 'public'))))
   .use(router.routes())
   .use(router.allowedMethods())
-  .listen(3000);
+  .listen(config.port);
