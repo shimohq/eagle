@@ -5,7 +5,10 @@
   },
   "globals": {
     "_": true,
-    "Promise": true
+    "Promise": true,
+    "describe": true,
+    "it": true,
+    "before": true
   },
   "rules": {
     "no-var": 1,

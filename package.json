@@ -25,7 +25,10 @@
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "co-mocha": "^1.1.2",
     "css-loader": "^0.23.1",
+    "mocha": "^2.4.5",
     "node-sass": "^3.7.0",
     "react": "^15.0.2",
     "react-css-modules": "^3.7.6",
@@ -39,7 +42,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "huaoguo",
   "license": "ISC"
