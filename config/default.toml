@@ -6,3 +6,9 @@ port = 3000
 
 # 这是一个正则表达式，匹配这个正则的配置是属于节点的配置
 nodeTest = '''^(mysql|redis|http)-'''
+
+[db]
+host = "localhost"
+database = "eagle"
+username = "root"
+password = "123456"

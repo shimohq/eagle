@@ -4,7 +4,9 @@
   "description": "server components' status checking",
   "main": "index.js",
   "dependencies": {
+    "co-sleep": "0.0.1",
     "config": "^1.20.1",
+    "cron": "^1.1.0",
     "ioredis": "^1.15.1",
     "jquery": "^2.2.3",
     "koa": "^1.2.0",
@@ -16,6 +18,8 @@
     "pug": "^2.0.0-alpha7",
     "radient": "0.0.4",
     "request": "^2.72.0",
+    "sequelize": "^3.23.1",
+    "sqlite3": "^3.1.3",
     "toml": "^2.3.0",
     "winston": "^2.2.0"
   },
@@ -42,7 +46,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
+    "test": "NODE_ENV=test mocha"
   },
   "author": "huaoguo",
   "license": "ISC"

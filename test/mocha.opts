@@ -1,2 +1,3 @@
 --require co-mocha
 --reporter landing
+--inline-diffs

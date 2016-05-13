@@ -1,4 +1,8 @@
 'use strict';
 
-require('./lib/pm2_test');
+global.expect = require('chai').expect;
 
+require('./lib/pm2_test');
+require('./lib/model_test');
+require('./lib/util_test');
+require('./schedules/jobs/node_info_test');

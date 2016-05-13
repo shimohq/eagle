@@ -6,16 +6,7 @@ class NodeContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = { nodes: {} };
-    $.getJSON('/config', (config) => {
-      window.config = config;
-      const nodes = [];
-      const regex = new RegExp(config.nodeTest);
-      _.each(config, (item, key) => {
-        if (regex.test(key)) {
-          item.name = key;
-          nodes.push(item);
-        }
-      });
+    $.getJSON('/api/nodes', (nodes) => {
       this.setState({ nodes: nodes });
     });
   }

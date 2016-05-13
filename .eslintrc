@@ -5,10 +5,7 @@
   },
   "globals": {
     "_": true,
-    "Promise": true,
-    "describe": true,
-    "it": true,
-    "before": true
+    "Promise": true
   },
   "rules": {
     "no-var": 1,
@@ -109,7 +106,6 @@
     "no-mixed-requires": 1,
     "no-new-require": 1,
     "no-path-concat": 1,
-    "no-process-exit": 1,
     "no-restricted-modules": [1, ""], // add any unwanted Node.js core modules
 
     "array-bracket-spacing": [1, "never"],

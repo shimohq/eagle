@@ -1,0 +1,13 @@
+[db]
+host = "localhost"
+databse = "eagle"
+
+[http-web1-9001]
+ip = "localhost"
+port = 9001
+path = "/ping"
+
+[http-api1-9001]
+ip = "localhost"
+port = 9002
+path = "/"
