@@ -35,19 +35,28 @@ class Node extends React.Component {
       this.resIndex = _reqIndex;
 
       this.setState({ delay: info.delay });
+    }).fail(() => {
+      this.setState({ disabled: true });
     });
   }
 
   render() {
-    const styleName = 'node';
-    const color = gradient.color(this.state.delay / 30000).hexString();
+    let color;
+    let delayMsg;
+    if (!this.state.disabled) {
+      color = gradient.color(this.state.delay / 30000).hexString();
+      delayMsg = this.state.delay + ' ms';
+    } else {
+      color = 'gray';
+      delayMsg = 'unavailable';
+    }
     return (
-      <div styleName={styleName}
+      <div styleName="node"
         style={{ background: color }}>
         <div styleName="label name">
           {this.props.data.name}
         </div>
-        <div styleName="label delay">{this.state.delay}ms</div>
+        <div styleName="label delay">{delayMsg}</div>
       </div>
     );
   }
