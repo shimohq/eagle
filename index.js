@@ -8,6 +8,7 @@ const config = require('config');
 const serve = require('koa-static');
 const mount = require('koa-mount');
 const util = require('./lib/util');
+const { Info } = require('./lib/model');
 
 require('./schedules/').start();
 
@@ -18,14 +19,17 @@ router
   })
   .get('/api/nodes', function* () {
     this.body = util.nodes();
+  })
+  .get('/api/pull/:name', function* () {
+    const name = this.params.name;
+    const info = yield Info.findOne({
+      where: {
+        node: name
+      },
+      order: 'id DESC'
+    });
+    this.body = info;
   });
-  // .get('/ping/:name', function* () {
-  //   const name = this.params.name;
-  //   const options = config[name];
-  //   const type = name.split('-')[0];
-
-  //   this.body = yield ping[type](options);
-  // });
 
 app
   .use(require('./middlewires/request_log'))

@@ -28,13 +28,13 @@ class Node extends React.Component {
 
   ping() {
     const _reqIndex = ++this.reqIndex;
-    $.get(`/ping/${this.props.data.name}`, (delay) => {
+    $.get(`/api/pull/${this.props.data.name}`, (info) => {
       if (_reqIndex <= this.resInex) {
         return;
       }
       this.resIndex = _reqIndex;
 
-      this.setState({ delay: delay });
+      this.setState({ delay: info.delay });
     });
   }
 

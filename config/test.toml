@@ -11,3 +11,8 @@ path = "/ping"
 ip = "localhost"
 port = 9002
 path = "/"
+
+[redis-master]
+host = "localhost"
+port = 6379
+password = ""
