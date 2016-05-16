@@ -2,20 +2,22 @@
   width: 200px;
   height: 200px;
   display: inline-block;
+  vertical-align: top;
   margin: 1px;
   text-align: center;
   color: white;
   background: gray;
 
   .name {
-    margin-top: 80px;
+    margin: 40px 0px 40px 0px;
   }
 }
 
-.delay {
+.label {
+  margin: 13px;
   color: white;
 }
 
-.label {
-  margin: 10px;
+.monit {
+  font-size: 11px;
 }

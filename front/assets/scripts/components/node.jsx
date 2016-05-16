@@ -17,7 +17,7 @@ class Node extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      delay: 0
+      info: { delay: 0 }
     };
     this.ping();
     setInterval(this.ping.bind(this), 3000);
@@ -34,7 +34,7 @@ class Node extends React.Component {
       }
       this.resIndex = _reqIndex;
 
-      this.setState({ delay: info.delay });
+      this.setState({ info: info, disabled: false });
     }).fail(() => {
       this.setState({ disabled: true });
     });
@@ -43,9 +43,15 @@ class Node extends React.Component {
   render() {
     let color;
     let delayMsg;
+    let monit;
+    const info = this.state.info;
     if (!this.state.disabled) {
-      color = gradient.color(this.state.delay / 30000).hexString();
-      delayMsg = this.state.delay + ' ms';
+      color = gradient.color(info.delay / 30000).hexString();
+      delayMsg = info.delay + ' ms';
+      if (info.memory) {
+        monit = Math.floor(info.memory / 1024 / 1024) + 'mb';
+        monit += ' ' + info.cpu + '%';
+      }
     } else {
       color = 'gray';
       delayMsg = 'unavailable';
@@ -56,7 +62,8 @@ class Node extends React.Component {
         <div styleName="label name">
           {this.props.data.name}
         </div>
-        <div styleName="label delay">{delayMsg}</div>
+        <div styleName="label">{delayMsg}</div>
+        <div styleName="label monit">{monit}</div>
       </div>
     );
   }
