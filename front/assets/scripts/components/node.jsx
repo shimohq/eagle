@@ -43,14 +43,15 @@ class Node extends React.Component {
   render() {
     let color;
     let delayMsg;
-    let monit;
+    let memory = '-';
+    let cpu = '-';
     const info = this.state.info;
     if (!this.state.disabled) {
       color = gradient.color(info.delay / 30000).hexString();
       delayMsg = info.delay + ' ms';
       if (info.memory) {
-        monit = Math.floor(info.memory / 1024 / 1024) + 'mb';
-        monit += ' ' + info.cpu + '%';
+        memory = Math.floor(info.memory / 1024 / 1024) + ' M';
+        cpu = info.cpu + '%';
       }
     } else {
       color = 'gray';
@@ -62,8 +63,9 @@ class Node extends React.Component {
         <div styleName="label name">
           {this.props.data.name}
         </div>
-        <div styleName="label">{delayMsg}</div>
-        <div styleName="label monit">{monit}</div>
+        <div styleName="label">delay: {delayMsg}</div>
+        <div styleName="label">memory: {memory}</div>
+        <div styleName="label">cpu: {cpu}</div>
       </div>
     );
   }
