@@ -4,6 +4,16 @@
 
 ## 运行
 
+### 数据库
+
+建好数据库后，并在 config/default.toml 修改 [db] 的配置。
+
+然后运行
+
+    node lib/model.js
+    
+会自动建表。
+
 ### 本地
 
     HOST=localhost npm start
