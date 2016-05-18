@@ -44,20 +44,21 @@ class Node extends React.Component {
   }
 
   render() {
+    let labels;
     let color;
-    let delayMsg;
-    let memory = '-';
-    let cpu = '-';
     let extra;
     const info = this.state.info;
     if (!this.state.disabled) {
+      labels = [];
       color = gradient.color(info.delay / 30000).hexString();
-      delayMsg = info.delay + ' ms';
+      labels.push(<div styleName="label">delay: {info.delay} ms</div>);
       if (info.memory) {
-        memory = Math.floor(info.memory / 1024 / 1024) + ' M';
+        const memory = Math.floor(info.memory / 1024 / 1024) + ' M';
+        labels.push(<div styleName="label">memory: {memory}</div>);
       }
       if (info.cpu !== null) {
-        cpu = info.cpu + '%';
+        const cpu = info.cpu + '%';
+        labels.push(<div styleName="label">cpu: {cpu}</div>);
       }
       if (info.extra) {
         extra = _.map(info.extra, function (val, prop) {
@@ -66,7 +67,7 @@ class Node extends React.Component {
       }
     } else {
       color = 'gray';
-      delayMsg = 'unavailable';
+      labels = <div styleName="label">unavailable</div>;
     }
     return (
       <div styleName="node"
@@ -74,9 +75,7 @@ class Node extends React.Component {
         <div styleName="label name">
           {this.props.data.name}
         </div>
-        <div styleName="label">delay: {delayMsg}</div>
-        <div styleName="label">memory: {memory}</div>
-        <div styleName="label">cpu: {cpu}</div>
+        {labels}
         {extra}
       </div>
     );
