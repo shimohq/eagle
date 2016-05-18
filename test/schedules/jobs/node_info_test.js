@@ -7,7 +7,7 @@ const Info = Model.Info;
 const ping = require('../../../lib/ping');
 const pm2 = require('../../../lib/pm2');
 
-describe('NodeInfoSchedule', function () {
+describe('NodeInfo', function () {
   const monit = {
     cpu: 3,
     memory: 1024000
@@ -98,7 +98,7 @@ describe('NodeInfoSchedule', function () {
       const info = infos[0];
       expect(info.node).to.equal(node.name);
       expect(info.cpu).to.be.null;
-      expect(info.memory).to.be.null;
+      expect(info.memory).to.above(0);
       expect(info.delay).to.equal(delay);
     });
   });

@@ -34,6 +34,9 @@ class Node extends React.Component {
       }
       this.resIndex = _reqIndex;
 
+      if (info.extra) {
+        info.extra = JSON.parse(info.extra);
+      }
       this.setState({ info: info, disabled: false });
     }).fail(() => {
       this.setState({ disabled: true });
@@ -45,13 +48,21 @@ class Node extends React.Component {
     let delayMsg;
     let memory = '-';
     let cpu = '-';
+    let extra;
     const info = this.state.info;
     if (!this.state.disabled) {
       color = gradient.color(info.delay / 30000).hexString();
       delayMsg = info.delay + ' ms';
       if (info.memory) {
         memory = Math.floor(info.memory / 1024 / 1024) + ' M';
+      }
+      if (info.cpu !== null) {
         cpu = info.cpu + '%';
+      }
+      if (info.extra) {
+        extra = _.map(info.extra, function (val, prop) {
+          return <div styleName="label" key={prop}>{prop}: {val}</div>;
+        });
       }
     } else {
       color = 'gray';
@@ -66,6 +77,7 @@ class Node extends React.Component {
         <div styleName="label">delay: {delayMsg}</div>
         <div styleName="label">memory: {memory}</div>
         <div styleName="label">cpu: {cpu}</div>
+        {extra}
       </div>
     );
   }
