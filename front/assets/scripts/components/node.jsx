@@ -47,18 +47,19 @@ class Node extends React.Component {
     let labels;
     let color;
     let extra;
+    let nodeStyle = 'node';
     const info = this.state.info;
     if (!this.state.disabled) {
       labels = [];
       color = gradient.color(info.delay / 30000).hexString();
-      labels.push(<div styleName="label">delay: {info.delay} ms</div>);
+      labels.push(<div styleName="label" key="delay">delay: {info.delay} ms</div>);
       if (info.memory) {
         const memory = Math.floor(info.memory / 1024 / 1024) + ' M';
-        labels.push(<div styleName="label">memory: {memory}</div>);
+        labels.push(<div styleName="label" key="memory">memory: {memory}</div>);
       }
       if (info.cpu !== null) {
         const cpu = info.cpu + '%';
-        labels.push(<div styleName="label">cpu: {cpu}</div>);
+        labels.push(<div styleName="label" key="cpu">cpu: {cpu}</div>);
       }
       if (info.extra) {
         extra = _.map(info.extra, function (val, prop) {
@@ -66,11 +67,11 @@ class Node extends React.Component {
         });
       }
     } else {
-      color = 'gray';
-      labels = <div styleName="label">unavailable</div>;
+      nodeStyle += ' disabled';
+      labels = <div styleName="label">Eagle closed</div>;
     }
     return (
-      <div styleName="node"
+      <div styleName={nodeStyle}
         style={{ background: color }}>
         <div styleName="label name">
           {this.props.data.name}
