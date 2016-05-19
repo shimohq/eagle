@@ -18,4 +18,5 @@ describe('util', function () {
       expect(nodes[0].ip).to.equal('localhost');
     });
   });
+
 });

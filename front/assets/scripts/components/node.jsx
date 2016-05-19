@@ -2,6 +2,7 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './node.scss';
 import Radient from 'radient';
+import util from '../../../../lib/format';
 
 var gradient = new Radient();
 gradient.stop('#008f00', 0);
@@ -54,7 +55,7 @@ class Node extends React.Component {
       color = gradient.color(info.delay / 30000).hexString();
       labels.push(<div styleName="label" key="delay">delay: {info.delay} ms</div>);
       if (info.memory) {
-        const memory = Math.floor(info.memory / 1024 / 1024) + ' M';
+        const memory = util.bytesFormat(info.memory);
         labels.push(<div styleName="label" key="memory">memory: {memory}</div>);
       }
       if (info.cpu !== null) {

@@ -6,4 +6,5 @@ require('./lib/pm2_test');
 require('./lib/redis_info_test');
 require('./lib/model_test');
 require('./lib/util_test');
+require('./lib/format_test');
 require('./schedules/jobs/node_info_test');

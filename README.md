@@ -2,6 +2,10 @@
 
 检测服务器各节点的运行状态，[http://shimodev.com:3007](http://shimodev.com:3007)
 
+## runtime
+
+nodejs-v6
+
 ## 运行
 
 ### 数据库
@@ -31,4 +35,4 @@ open [http://localhost:9901](http://localhost:9901) in browser
 配置见 config/ 目录
 
 ## TODO
-* 记录每次 ping 的结果，可以交给第三方服务做图表
+* chart
