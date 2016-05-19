@@ -31,15 +31,15 @@ describe('format', function () {
     });
 
     it('should convert bytes to kb', function () {
-      expect(format.bytes(1024 * 1.46)).to.equal('1.46 K');
+      expect(format.bytes(1024 * 1.46)).to.equal('1.5 K');
     });
 
     it('should convert bytes to mb', function () {
-      expect(format.bytes(1024 * 1024 * 1.46)).to.equal('1.46 M');
+      expect(format.bytes(1024 * 1024 * 1.46)).to.equal('1.5 M');
     });
 
     it('should convert bytes to gb', function () {
-      expect(format.bytes(1024 * 1024 * 1024 * 1.46)).to.equal('1.46 G');
+      expect(format.bytes(1024 * 1024 * 1024 * 1.46)).to.equal('1.5 G');
     });
 
   });

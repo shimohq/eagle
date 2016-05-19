@@ -2,12 +2,17 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './node.scss';
 import Radient from 'radient';
-import util from '../../../../lib/format';
+import format from '../../../../lib/format';
 
-var gradient = new Radient();
-gradient.stop('#008f00', 0);
-gradient.stop('#929000', 1000 / 30000);
-gradient.stop('#941100', 1);
+const delayGradient = new Radient();
+delayGradient.stop('#008f00', 0);
+delayGradient.stop('#929000', 1000 / 30000);
+delayGradient.stop('#941100', 1);
+
+const cpuGradient = new Radient();
+cpuGradient .stop('#008f00', 0);
+cpuGradient .stop('gold', 0.5);
+cpuGradient .stop('red', 1);
 
 class Node extends React.Component {
 
@@ -52,15 +57,16 @@ class Node extends React.Component {
     const info = this.state.info;
     if (!this.state.disabled) {
       labels = [];
-      color = gradient.color(info.delay / 30000).hexString();
+      color = delayGradient.color(info.delay / 30000).hexString();
       labels.push(<div styleName="label" key="delay">delay: {info.delay} ms</div>);
       if (info.memory) {
-        const memory = util.bytesFormat(info.memory);
+        const memory = format.bytes(info.memory);
         labels.push(<div styleName="label" key="memory">memory: {memory}</div>);
       }
-      if (info.cpu !== null) {
+      if (typeof info.cpu === 'number') {
+        const cpuColor = cpuGradient.color(info.cpu / 100).hexString();
         const cpu = info.cpu + '%';
-        labels.push(<div styleName="label" key="cpu">cpu: {cpu}</div>);
+        labels.push(<div styleName="label" style={{ background: cpuColor }} key="cpu">cpu: {cpu}</div>);
       }
       if (info.extra) {
         extra = _.map(info.extra, function (val, prop) {
